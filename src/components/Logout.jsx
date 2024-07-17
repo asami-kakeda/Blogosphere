@@ -1,10 +1,22 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
-const Logout = () => {
+const Logout = ({ setIsAuth }) => {
+  const navigate = useNavigate();
+  const logout = () => {
+    signOut(auth).then(() => {
+      localStorage.clear();
+      setIsAuth(false);
+      navigate("/login");
+    });
+  };
+
   return (
     <div>
-      <p>ログインして始める</p>
-      <button>Googleでログイン</button>
+      <p>ログアウトする</p>
+      <button onClick={logout}>ログアウト</button>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Login = ({ setIsAuth }) => {
   const navigate = useNavigate();
   const loginInWithGoogle = () => {
     signInWithPopup(auth, provider).then((result) => {
-      localStorage.setItem("isAuth", true);
+      localStorage.setItem("isAuth", JSON.stringify(true));
       setIsAuth(true);
       navigate("/");
     });

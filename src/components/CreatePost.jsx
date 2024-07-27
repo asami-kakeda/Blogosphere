@@ -10,6 +10,7 @@ const CreatePost = ({ isAuth }) => {
 
   const navigate = useNavigate();
 
+  //ファイヤーベースにデータを追加
   const createPost = async () => {
     await addDoc(collection(db, "posts"), {
       title: title,

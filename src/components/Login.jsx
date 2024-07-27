@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ setIsAuth }) => {
   const navigate = useNavigate();
   const loginInWithGoogle = () => {
+    //googleでログイン
     signInWithPopup(auth, provider).then((result) => {
       localStorage.setItem("isAuth", JSON.stringify(true));
       setIsAuth(true);
